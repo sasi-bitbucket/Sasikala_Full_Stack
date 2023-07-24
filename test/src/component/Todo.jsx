@@ -4,6 +4,7 @@ import authHeader from '../services/auth-header';
 import jwtDecode from 'jwt-decode';
 import '../css/table.css';
 
+
 class Todo extends React.Component {
   constructor(props) {
     super(props);
@@ -40,8 +41,8 @@ class Todo extends React.Component {
   handleEdit = (id) => {
     const editItem = this.state.data.find((item) => item.todo_id === id);
     this.setState({ editId: id, editData: editItem });
-  };
-
+    };
+    
   handleSave = async (id) => {
    // this.setState({ loading: true });
     try {
@@ -55,8 +56,7 @@ class Todo extends React.Component {
 
   handleChange = (event, fieldName) => {
     this.setState({ editData: { ...this.state.editData, [fieldName]: event.target.value } });
-  };
-
+    };
   render() {
     const { data, editId, editData, error,role } = this.state;
 
@@ -67,7 +67,6 @@ class Todo extends React.Component {
       return (
         <div>
               <h1 class="centered-text">Todo Table</h1>
-        
       <div class="table-container">
         
         <table>

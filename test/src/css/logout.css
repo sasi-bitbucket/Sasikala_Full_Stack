@@ -1,0 +1,13 @@
+.logout-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: aliceblue;
+    cursor: pointer;
+    justify-content: end;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    transition: background-color 0.3s ease;
+  }

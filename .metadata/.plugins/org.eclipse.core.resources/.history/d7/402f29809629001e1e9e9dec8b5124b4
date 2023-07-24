@@ -1,0 +1,5 @@
+package com.project.SampleApplication.controller;
+
+public class AuthenticationController {
+
+}

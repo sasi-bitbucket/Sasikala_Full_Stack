@@ -1,0 +1,37 @@
+package com.project.SampleApplication.controller;
+
+import java.util.List;
+
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.project.SampleApplication.model.TodoObject;
+import com.project.SampleApplication.service.TodoService;
+
+@RestController
+public class TodoController {
+
+	private TodoService todoService;
+
+	@GetMapping("/getAllTodos")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_STUDENT')")
+	public List<TodoObject> getAllTodoObjects() {
+
+		return todoService.getAllTodoObjects();
+	}
+
+	@PutMapping("/updateTodo/{id}")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+	public List<TodoObject> updateTodoObject(@PathVariable("id") int id, @RequestBody TodoObject todoObj) {
+
+		todoService.updateTodoObject(id, todoObj);
+
+		return todoService.getAllTodoObjects();
+
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.project.SampleApplication.repository;
+
+public interface RoleRepository {
+
+}
